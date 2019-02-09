@@ -21,7 +21,7 @@ def isFull():
         return True
     return False
 
-def enqueue(new_element):
+def push(new_element):
     if isFull():
         print("queue is full cannot insert element")
         return
@@ -35,26 +35,30 @@ def enqueue(new_element):
     size =size +1
     print(queue)
 
-def dequeue():
+def pop():
     if isEmpty():
         print("queue is empty cannot pop")
         return
     global front_pointer
     global size
-
-    queue[front_pointer] =0
-    front_pointer = (front_pointer +1)%capacity
-    size =size
-    print(queue)
+    try:
+        max =0
+        for i in range(len(queue)):
+            if  queue[i] > queue[max]:
+                max =i
+            item = queue[max]
+            del queue[max]
+            return  item
+    except IndexError:
+        print()
+        exit()
 
 createQueue(3)
-enqueue(5)
-enqueue(4)
-enqueue(2)
-enqueue(1)
-dequeue()
-dequeue()
-enqueue(6)
-dequeue()
-dequeue()
-dequeue()
+push(1)
+push(4)
+push(2)
+push(1)
+pop()
+pop()
+pop()
+pop()

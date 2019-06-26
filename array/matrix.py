@@ -14,8 +14,12 @@ print("=======================")
 def transposeMat():
     row = len(a)
     col = len(a[0])
-    for j in  range(col):
+    print("len a",len(a))
+    print("len a0",len(a[0]))
+    for j in range(col):
+        print("j", j)
         for i in range(row):
+            print("i", i)
             print(a[i][j], end= " ")
         print("\n")
 
